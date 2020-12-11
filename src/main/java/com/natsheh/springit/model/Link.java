@@ -9,16 +9,11 @@ import java.util.List;
 
 @Entity
 @Data
-// we do not need to use the @Table anotation, since this should indicate if there is a special name for the table
-// by default it will look/create table same name as class name.
+
 public class Link extends Auditable {
- //    @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
-//    @SequenceGenerator(name = "id_generator")
-//    private Long id;
-    @Id             //specifies the primary key
+
+    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    // maybe it should removed and be handled from the database side idk.
     private Long id;
     private String title;
     private String url;
@@ -26,9 +21,20 @@ public class Link extends Auditable {
     @OneToMany(mappedBy = "link")
     private List<Comment> comments;
 
-    public Link() {
+    {
         this.comments = new ArrayList<>();
     }
 
 
+    public Link() {
+    }
+
+    public Link(String title, String url) {
+        this.title = title;
+        this.url = url;
+    }
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
 }

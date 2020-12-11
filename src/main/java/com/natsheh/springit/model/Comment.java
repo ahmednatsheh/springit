@@ -17,4 +17,9 @@ public class Comment extends Auditable {
     private String body;
     @ManyToOne
     private Link link;
+
+    public Comment(String body, Link link) {
+        this.body = body;
+        this.link = link;
+    }
 }
