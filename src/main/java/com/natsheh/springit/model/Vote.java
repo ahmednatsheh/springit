@@ -1,6 +1,7 @@
 package com.natsheh.springit.model;
 
 
+import com.natsheh.springit.audit.Auditable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Entity
 @Data
-public class Vote {
+public class Vote extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
