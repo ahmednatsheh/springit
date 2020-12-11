@@ -12,7 +12,10 @@ import java.util.List;
 // we do not need to use the @Table anotation, since this should indicate if there is a special name for the table
 // by default it will look/create table same name as class name.
 public class Link extends Auditable {
-
+ //    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+//    @SequenceGenerator(name = "id_generator")
+//    private Long id;
     @Id             //specifies the primary key
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     // maybe it should removed and be handled from the database side idk.
